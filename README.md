@@ -39,15 +39,28 @@ This project can be used to practice:
 
 ### Android Application
 
-The Android client source code is located in the `Android/` directory.
+If you simply want to use the application, you can download the latest pre-built APK from the repository's Actions page. Open the most recent successful workflow run, navigate to the Artifacts section, and download the app-debug artifact.
 
-Open the project in Android Studio, build it, and install it on a compatible Android device or emulator. The project is configured to work with both arm64 and x86 devices, so it supports Android emulators.
+Alternatively, you can build the application yourself by opening the project in Android Studio and installing it on a compatible Android device or emulator. The project is configured to support both arm64 and x86 architectures, making it compatible with most physical devices and Android emulators.
 
 ### Backend Server
 
-The backend implementation is located in the `Backend/` directory.
+The backend implementation is located in the `Backend/` directory and is written in Node.js.
 
-Refer to the documentation and source code in that directory for instructions on configuring dependencies and running the server.
+Before starting the server, install the required dependencies:
+
+```bash
+cd Backend
+npm install
+```
+
+Once the installation is complete, start the server with:
+
+```bash
+node server.js
+```
+
+The server will then be ready to accept connections from the Android application.
 
 ## Script suggestions
 
