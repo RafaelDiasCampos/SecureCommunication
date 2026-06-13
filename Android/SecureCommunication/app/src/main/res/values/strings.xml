@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SecureCommunication</string>
+    <string name="encrypted_request">Encrypted Request</string>
+    <string name="unencrypted_request">Unencrypted Request</string>
+    <string name="encrypted_native_request">Encrypted Native Request</string>
+    <string name="host">Host</string>
+    <string name="default_host">http://10.23.23.51:8080</string>
+    <string name="encrypted_native_asymmetrical_request">Enrypted Asymmetrical Request</string>
+</resources>
