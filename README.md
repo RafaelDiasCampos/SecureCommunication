@@ -1,5 +1,7 @@
 # SecureCommunication
 
+![SecureCommunication application screenshot](app.png)
+
 SecureCommunication is a challenge project consisting of an Android application and a backend server that communicate using both **symmetric** and **asymmetric cryptography**.
 
 The goal of this repository is to provide a target for **mobile application security researchers** and **penetration testers** who want to practice developing **Frida scripts** and other dynamic instrumentation techniques to intercept, analyze, and manipulate encrypted network traffic.

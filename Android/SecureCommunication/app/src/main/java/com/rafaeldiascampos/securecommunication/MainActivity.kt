@@ -7,6 +7,7 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import com.rafaeldiascampos.securecommunication.databinding.ActivityMainBinding
+import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadHost()
 
         // Create a handler to receive log results
         val handler = object : Handler(Looper.getMainLooper()) {
@@ -36,33 +39,51 @@ class MainActivity : AppCompatActivity() {
         binding.requestUnencryptedButton.setOnClickListener {
             binding.logTextBox.setText("")
 
-            val host: String = binding.hostTextbox.text.toString()
-
+            val host = getHost()
             requestHandler.unencryptedRequest(host)
         }
 
         binding.requestEncryptedButton.setOnClickListener {
             binding.logTextBox.setText("")
 
-            val host: String = binding.hostTextbox.text.toString()
-
+            val host = getHost()
             requestHandler.encryptedRequest(host)
         }
 
         binding.requestEncryptedNativeButton.setOnClickListener {
             binding.logTextBox.setText("")
 
-            val host: String = binding.hostTextbox.text.toString()
-
+            val host = getHost()
             requestHandler.encryptedNativeRequest(host)
         }
 
         binding.requestEncryptedAsymmetricalButton.setOnClickListener {
             binding.logTextBox.setText("")
 
-            val host: String = binding.hostTextbox.text.toString()
-
+            val host = getHost()
             requestHandler.encryptedAsymmetricRequest(host, applicationContext)
+        }
+    }
+
+    private fun getHost(): String {
+        val host = binding.hostTextbox.text.toString()
+        saveHost(host)
+        return host
+    }
+
+    private fun saveHost(host: String) {
+        getSharedPreferences("app_prefs", MODE_PRIVATE)
+            .edit {
+                putString("host", host)
+            }
+    }
+
+    private fun loadHost() {
+        val host = getSharedPreferences("app_prefs", MODE_PRIVATE)
+            .getString("host", null)
+
+        host?.let {
+            binding.hostTextbox.setText(it)
         }
     }
 
